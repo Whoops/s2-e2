@@ -1,6 +1,6 @@
 class Bank
   def initialize()
-    @accounts={}
+    @accounts = {}
   end
   
   def account(name)
@@ -8,7 +8,7 @@ class Bank
   end
   
   def add_account(acc)
-    @accounts[acc.name]=acc
+    @accounts[acc.name] = acc
   end
   
   class Account
@@ -16,19 +16,19 @@ class Bank
     attr_reader :balance
     
     def initialize(name, initial_deposit=0)
-      @name=name
-      @balance=initial_deposit
-      @deposit_handlers=[]
-      @withdraw_handlers=[]
+      @name = name
+      @balance = initial_deposit
+      @deposit_handlers = []
+      @withdraw_handlers = []
     end
     
     def deposit(amount)
-      @balance+=amount
+      @balance += amount
       @deposit_handlers.each { |handler| handler.call(amount, balance) }
     end
     
     def withdraw(amount)
-      @balance-=amount
+      @balance -= amount
       @withdraw_handlers.each { |handler| handler.call(amount, balance) }
     end
     

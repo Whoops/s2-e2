@@ -27,7 +27,7 @@ class Bank
       @deposit_handlers.each { |handler| handler.call(amount, balance) }
     end
     
-    def deposit(amount)
+    def withdraw(amount)
       @balance-=amount
       @withdraw_handlers.each { |handler| handler.call(amount, balance) }
     end

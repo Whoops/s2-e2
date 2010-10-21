@@ -18,7 +18,7 @@ describe Bank do
     @account.deposit 50
   end
   
-  it "should call withdraw observer on withdrawl" do
+  it "should call withdraw observer on withdrawal" do
     callback = @account.on_withdraw { |a,b| b }
     callback.expects(:call).with(50,950)
     

@@ -25,11 +25,13 @@ class Bank
     def deposit(amount)
       @balance += amount
       @deposit_handlers.each { |handler| handler.call(amount, balance) }
+      balance
     end
     
     def withdraw(amount)
       @balance -= amount
       @withdraw_handlers.each { |handler| handler.call(amount, balance) }
+      balance
     end
     
     def transfer(amount, account)
@@ -39,11 +41,11 @@ class Bank
       
     
     def on_deposit(&block)
-      @deposit_handlers << proc &block
+      @deposit_handlers << proc(&block)
     end
     
     def on_withdraw(&block)
-      @withdraw_handlers << proc &block
+      @withdraw_handlers << proc(&block)
     end
     
   end

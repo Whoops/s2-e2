@@ -48,5 +48,6 @@ class Bank
       @withdraw_handlers << proc(&block)
     end
     
-  end
+  end    
+  
 end
